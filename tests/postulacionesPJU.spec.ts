@@ -20,8 +20,10 @@ test('test de usuarios - Sitio Postulaciones', async ({ page }) => {
     await page.goto('https://postulaciones.pjud.cl/postulacionessrh/servlet/com.postulaciones.login', {waitUntil: 'networkidle' });
     await page.getByRole('textbox', { name: 'Rut Usu' }).click();
     await page.getByRole('textbox', { name: 'Rut Usu' }).fill(user_web);
+    //await page.getByRole('textbox', { name: 'Rut Usu' }).fill('13568685');
     await page.getByRole('textbox', { name: 'Pas Usu' }).click();
     await page.getByRole('textbox', { name: 'Pas Usu' }).fill(pass_web);
+    //await page.getByRole('textbox', { name: 'Pas Usu' }).fill('Semo2110');
     await page.getByRole('button', { name: 'Iniciar sesión' }).click();
        
     try {
@@ -33,10 +35,16 @@ test('test de usuarios - Sitio Postulaciones', async ({ page }) => {
     
     } catch (error) {
       console.log(`Login exitoso para el usuario: ${user_web}`);
-        
-      await page.getByText('Cerrar', { exact: true }).click();
+      
       await page.locator('#DDO_ADMINAG_MPAGEContainer_btnGroupDrop').click();
       await page.locator('#DDO_ADMINAG_MPAGEContainer').getByRole('link', { name: ' Cerrar Sesión' }).click();
+
+
+
+      
+      //await page.locator('#DDO_ADMINAG_MPAGEContainer_btnGroupDrop')
+      //await page.locator('#DDO_ADMINAG_MPAGEContainer_btnGroupDrop').click();
+      //await page.locator('#DDO_ADMINAG_MPAGEContainer').getByRole('link', { name: ' Cerrar Sesión' }).click();
     
       fs.appendFileSync('pjud-logeados.csv', row + '\n', { encoding: 'utf-8' });
     }
