@@ -19,7 +19,13 @@ Clonar este repositorio
   npm init playwright@latest
 ```
 
-
+Durante pantalla de instalacion de playwright seleccionar lo siguientes opciones
+```bash
+    TypeScript
+    tests
+    false
+    true
+```
 
 
 ## Running Tests
